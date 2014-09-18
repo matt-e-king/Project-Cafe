@@ -1,0 +1,31 @@
+<div class="edit form-group">
+
+  <cafe-edit-controls></cafe-edit-controls>
+
+	<label for="{{field.meta.id.value}}">
+    {{field.content.label.value}} {{field.meta.required.value ? '*' : ''}} 
+  </label>
+
+	<select 
+		id="{{field.meta.id.value}}" 
+		name="{{field.meta.id.value}}" 
+		class="form-control" 
+		ng-required="field.meta.required.value"
+		ng-disabled="field.meta.disabled.value"
+    ng-options="option for option in field.content.options.value"
+		ng-model="field.content.value.value"
+    ng-click="setEditSection($index)">
+    
+    <option value="">{{field.content.placeholder.value}}</option>
+    <option ng-repeat="option in field.content.options.value track by $index" value="{{option}}">{{option}}</option>
+
+  </select>
+
+	<div class="edit-meta form-horizontal" ng-show="editSection == $index">
+
+		<cafe-edit-common></cafe-edit-common>
+
+    <cafe-edit-conditional></cafe-edit-conditional>
+	</div>
+
+</div>

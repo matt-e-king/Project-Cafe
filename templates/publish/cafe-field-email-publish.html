@@ -1,0 +1,16 @@
+<div class="form-group col-sm-{{field.meta.width.value}}" ng-show="{{field.meta.conditional.whichField}} {{field.meta.conditional.operator}} {{field.meta.conditional.value}}">
+
+  	<label for="{{field.meta.id.value}}">
+      {{field.content.label.value}} {{field.meta.required.value ? '*' : ''}} 
+    </label>
+
+  	<input type="email" 
+  			id="{{field.meta.id.value}}" 
+  			name="{{field.meta.id.value}}" 
+  			class="form-control" 
+  			placeholder="{{field.content.placeholder.value}}"
+  			ng-required="field.meta.required.value"
+  			ng-disabled="field.meta.disabled.value"
+  			ng-model="field.content.value.value">
+
+</div>

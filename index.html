@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html ng-app="Cafe">
+<head>
+  <title>Project Cafe</title>
+  <link rel="stylesheet" type="text/css" href="dist/css/main.css">
+  <script src="dist/js/main.js"></script>
+  <!-- endbuild -->
+</head>
+<body ng-controller="MainController">
+
+  <header role="banner">
+
+    <div class="container">
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>Hello, Project Cafe!</h1>
+          <p>Create Angular Forms Easily, great job.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <div ng-controller="FormController" role="main">
+
+    <div class="container-fluid top menu">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12">
+            
+              <ul class="nav nav-tabs">
+                <li class="active">
+                  <button data-target="#fields" class="btn btn-default" role="tab" data-toggle="tab">
+                    Fields
+                  </button>
+                </li>
+                <li>
+                  <button data-target="#settings" class="btn btn-default" role="tab" data-toggle="tab">
+                    Form Settings
+                  </button>
+                </li>
+                <li>
+                  <button data-target="#output" class="btn btn-default" role="tab" data-toggle="tab" ng-click="getJSON(); loadHTML();">
+                    Output
+                  </button>
+                </li>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+
+    </div>
+
+    <div class="container-fluid bottom menu">
+
+        <div class="container">
+
+          <div class="row">
+
+            <div class="tab-content col-xs-12">
+
+              <ul id="fields" class="tab-pane fade in active">
+                <li>
+                  <button class="btn btn-default" ng-click="addNewSection('text')">
+                    Input +
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-default" ng-click="addNewSection('email')">
+                    Email +
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-default" ng-click="addNewSection('select')">
+                    Select +
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-default" ng-click="addNewSection('textarea')">
+                    Textarea +
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-default" ng-click="addNewSection('radio')">
+                    Radio +
+                  </button>
+                </li>
+                <li>
+                  <button class="btn btn-default" ng-click="addNewSection('checkbox')">
+                    Checkbox +
+                  </button>
+                </li>
+              </ul>
+
+              <div id="settings" class="tab-pane fade">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="">Form Id</label>
+                      <input type="text" class="form-control" ng-model="settings.id">
+                    </div>
+                    <div class="form-group">
+                      <label for="">Field Model</label>
+                      <input type="text" class="form-control" ng-model="settings.fieldModel">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div id="output" class="tab-pane fade">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="json">JSON</label>
+                      <textarea id="json" name="json" rows="10" class="form-control"></textarea>
+                    </div>
+                    <button class="btn btn-default" ng-click="getJSON()">Refresh</button>
+                    <button class="btn btn-default" ng-click="loadJSON()">Load JSON</button>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="html">HTML</label>
+                      <textarea id="html" name="html" rows="10" class="form-control"></textarea>
+                    </div>
+                    <button class="btn btn-default" ng-click="loadHTML()">Load HTML</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="container forms">
+
+      <div class="row" ng-view>
+
+      </div>
+
+      <button class="btn btn-primary" ng-click="refresh()">Refresh</button>
+
+    </div>
+
+    <div id="htmlCopy" style="display:none;">
+      <form ng-submit="contactSubmit()" id="{{settings.id}}" name="{{settings.id}}" novalidate>
+        
+      </form>
+    </div>
+
+  </div>
+  
+</body>
+</html>

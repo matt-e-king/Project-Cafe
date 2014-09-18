@@ -1,0 +1,8 @@
+<div class="controls">
+	<ul>
+	  <li class="up" ng-if="!$first"><span class="anim glyphicon glyphicon-chevron-up" ng-click="moveSection($index, $index - 1)"></span></li>
+	  <li class="down" ng-if="!$last"><span class="anim glyphicon glyphicon-chevron-down" ng-click="moveSection($index, $index + 1)"></span></li>
+	  <li class="edit"><span class="anim glyphicon glyphicon-pencil" ng-click="setEditSection($index)"></span></li>
+	  <li class="remove"><span class="anim glyphicon glyphicon-remove" ng-click="removeSection($index)"></span></li>
+	</ul>
+</div>

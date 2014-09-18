@@ -1,0 +1,153 @@
+/*-----------------------------
+Bootstrap Location
+-----------------------------*/
+@bootstrap: 			"../bower_components/bootstrap/less/";
+@font-awesome: 			"../bower_components/font-awesome/less/";
+
+@danger-red: 			#ca3737;
+@success-green: 		#71bc60;
+@light-grey: 			#eee;
+@dark-grey: 			#ccc;
+
+
+/*-----------------------------
+Imports
+-----------------------------*/
+@import "@{font-awesome}font-awesome.less";
+@import "@{bootstrap}bootstrap.less";
+@import "custom-variables.less";
+
+.edit {
+	&:hover {
+		cursor:pointer;
+	}
+}
+
+.jumbotron {
+	margin-bottom:0px;
+}
+
+header {
+	color:#fff;
+	background-color:@brand-primary;
+	p {
+		margin-bottom:20px;
+	}
+}
+
+.edit {
+
+	&.form-group {
+		position:relative;
+	}
+
+	.edit-meta {
+		&.form-horizontal {
+			padding:10px;
+		}
+		.form-group {
+			margin-bottom:5px;
+			position:relative;
+		}
+		.form-control {
+			font-size:@font-size-small;
+			height:24px;
+		}
+		label {
+			font-size:@font-size-small;
+		}
+	}
+
+}
+
+.controls {
+	position:absolute;
+	right:5px;
+	top:0px;
+
+	.anim {
+		.transition(all .15s linear);
+	}
+
+	ul {
+		padding-left:0px;
+		list-style:none;
+		li {
+			display:inline-block;
+			padding:3px 7px;
+			&:last-child {
+				padding-right:0px;
+			}
+			span {
+				&:hover {
+					cursor:pointer;
+					font-size:(@font-size-base + 2);
+				}
+			}
+		}
+	}
+}
+
+.menu {
+	ul {
+		margin-bottom:0px;
+		padding-left:0px;
+		list-style: none;
+		li {
+			margin-right:5px;
+			display:inline-block;
+		}
+	}
+}
+
+.top {
+	background-color: @brand-primary;
+	ul {
+		margin-bottom:0px;
+		border-bottom:0px;
+		li {
+			float:none;
+			margin-bottom:0px;
+			.btn-default {
+				background-color: lighten(@brand-primary, 5%);
+				border-radius: 0px;
+				border:0px;
+				color:#fff;
+				&:hover {
+					background-color: darken(@brand-primary, 5%);
+				}
+			}
+			&.active {
+				.btn-default {
+					background-color:@light-grey;
+					color:#000;
+					&:hover {
+						background-color:@light-grey;
+						cursor:default;
+						border:0px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.bottom {
+	background-color: @light-grey;
+	padding: 15px;
+	margin-bottom: 30px;
+	ul {
+		li {
+			.btn-default {
+				border-radius: 0px;
+				border:0px;
+				border-bottom:4px solid @dark-grey;
+				&:hover {
+					background-color:#fff;
+					border-bottom:4px solid @brand-primary;
+				}
+			}
+		}
+	}
+
+}

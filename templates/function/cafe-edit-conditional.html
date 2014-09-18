@@ -1,0 +1,29 @@
+<div class="form-group row">
+  <label for="" class="col-xs-2 control-label">conditional</label>
+  <div class="col-xs-5">
+    <select class="form-control publish" ng-model="field.meta.conditional.whichField" class="publish">
+      
+      <option value="">-- Select Field --</option>
+      <option 
+          ng-repeat="selectField in fields"
+          ng-selected="field.meta.conditional.whichField == 'fields[{{$index}}].content.value.value'"
+          value="fields[{{$index}}].content.value.value">
+            {{selectField.content.label.value}}
+      </option>
+
+    </select>
+    <select class="form-control publish" ng-model="field.meta.conditional.operator" class="publish">
+      
+      <option value="">-- Select Operator --</option>
+      <option value="==">==</option>
+      <option value="!=">!=</option>
+      <option value=">">></option>
+      <option value="<"><</option>
+      <option value=">=">>=</option>
+      <option value="<="><=</option>
+
+    </select>
+    <input type="text" ng-model="field.meta.conditional.value" class="publish form-control">
+  </div>
+
+</div>

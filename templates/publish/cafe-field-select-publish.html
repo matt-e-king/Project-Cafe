@@ -1,0 +1,20 @@
+<div class="form-group col-sm-{{field.meta.width.value}}" ng-show="{{field.meta.conditional.whichField}} {{field.meta.conditional.operator}} {{field.meta.conditional.value}}">
+
+  	<label for="{{field.meta.id.value}}">{{field.content.label.value}} {{field.meta.required.value ? '*' : ''}}</label>
+
+    <select 
+        id="{{field.meta.id.value}}" 
+        name="{{field.meta.id.value}}" 
+        class="form-control" 
+        ng-required="field.meta.required.value"
+        ng-disabled="field.meta.disabled.value"
+        ng-model="field.content.value.value"
+        ng-options="option for option in field.content.options.value"
+        ng-show="{{field.meta.conditional.value}}">
+        
+        <option value="">{{field.content.placeholder.value}}</option>
+        <!-- <option ng-repeat="option in field.content.options.value track by $index" value="{{option}}">{{option}}</option> -->
+
+    </select>
+
+</div>

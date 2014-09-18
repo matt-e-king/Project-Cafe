@@ -1,0 +1,19 @@
+<div class="form-group col-sm-{{field.meta.width.value}}" ng-show="{{field.meta.conditional.whichField}} {{field.meta.conditional.operator}} {{field.meta.conditional.value}}">
+
+  	<label for="{{field.meta.id.value}}">
+      {{field.content.label.value}} {{field.meta.required.value ? '*' : ''}} 
+    </label>
+
+    <div class="radio" ng-repeat="option in field.content.options.value track by $index">
+      <label>
+        <input type="radio" 
+                name="{{field.meta.id.value}}" 
+                id="{{field.meta.id.value}}{{$index}}" 
+                value="{{option}}" 
+                ng-required="field.meta.required.value"
+                ng-model="field.content.value.value">
+        {{option}}
+      </label>
+    </div>
+
+</div>

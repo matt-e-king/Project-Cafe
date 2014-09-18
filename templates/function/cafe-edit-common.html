@@ -1,0 +1,32 @@
+<div>
+  <div class="form-group row" ng-repeat="(k, v) in field.meta track by $index" ng-if="v.showInLoop != false">
+    <label for="" class="col-xs-2 control-label">{{k}}</label>
+    <div class="col-xs-5">
+      <input type="{{v.type}}" ng-if="v.type == 'text' || v.type == 'radio' || v.type == 'checkbox'" ng-model="v.value" class="form-control">
+      <textarea type="{{v.type}}" ng-if="v.type == 'textarea'" ng-model="v.value" class="form-control"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="" class="col-xs-2 control-label">width</label>
+    <div class="col-xs-5">
+      <select class="form-control" ng-model="field.meta.width.value">
+        
+        <option value="">-- Select Width --</option>
+        <option value="4">Third</option>
+        <option value="6">Half</option>
+        <option value="8">Two Thirds</option>
+        <option value="12">Full</option>
+
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group row" ng-repeat="(k, v) in field.content track by $index" ng-if="v.showInLoop != false">
+    <label for="" class="col-xs-2 control-label">{{k}}</label>
+    <div class="col-xs-5">
+      <input type="{{v.type}}" ng-if="v.type == 'text' || v.type == 'radio' || v.type == 'checkbox'" ng-model="v.value" class="form-control">
+      <textarea type="{{v.type}}" ng-if="v.type == 'textarea'" ng-list ng-model="v.value" class="form-control"></textarea>
+    </div>
+  </div>
+</div>

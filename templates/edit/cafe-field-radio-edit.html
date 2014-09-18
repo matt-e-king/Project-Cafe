@@ -1,0 +1,29 @@
+<div class="edit form-group">
+
+	<label for="{{field.meta.id.value}}">
+    {{field.content.label.value}} {{field.meta.required.value ? '*' : ''}} 
+  </label>
+
+  <div class="radio" ng-repeat="option in field.content.options.value track by $index">
+    <label>
+      <input type="radio" 
+              name="{{field.meta.id.value}}" 
+              id="{{field.meta.id.value}}{{$index}}" 
+              value="{{option}}"
+              ng-required="field.meta.required.value"
+              ng-model="field.content.value.value">
+      {{option}}
+    </label>
+  </div>
+
+  <cafe-edit-controls></cafe-edit-controls>
+
+	<div class="edit-meta form-horizontal" ng-show="editSection == $index">
+
+		<cafe-edit-common></cafe-edit-common>
+
+    <cafe-edit-conditional></cafe-edit-conditional>
+
+	</div>
+
+</div>
