@@ -113,10 +113,17 @@ cafe.controller('FormController', ['$scope', '$filter', '$location', '$route', '
             var _tempId = angular.element(v).attr('id');
             angular.element(v)
             .attr('ng-model', $scope.settings.fieldModel+'.'+_tempId)
+            .removeClass('ng-pristine')
+            .removeClass('ng-valid')
+            .removeClass('ng-valid-email')
+            .removeClass('ng-valid-required')
+            .removeClass('ng-invalid')
+            .removeClass('ng-invalid-required')
             .removeAttr('ng-required')
             .removeAttr('ng-repeat')
             .removeAttr('ng-disabled')
-            .removeAttr('ng-show');
+            .removeAttr('ng-show')
+            .removeAttr('ng-options');
           });
       }
 
