@@ -36,6 +36,8 @@ cafeForm.directive('cafeFieldEdit', function cafeFieldDirective($compile, $http,
         baseUrl = 'templates/edit/',
         templateMap = {
             text: 'cafe-field-text-edit.html'
+            , password: 'cafe-field-password-edit.html'
+            , file: 'cafe-field-file-edit.html'
             , email: 'cafe-field-email-edit.html'
             , select: 'cafe-field-select-edit.html'
             , textarea: 'cafe-field-textarea-edit.html'
@@ -79,6 +81,8 @@ cafeFormPublish.directive('cafeFieldPublish', function cafeFieldDirective($compi
       baseUrl = 'templates/publish/',
       templateMap = {
           text: 'cafe-field-text-publish.html'
+          , password: 'cafe-field-password-publish.html'
+          , file: 'cafe-field-file-publish.html'
           , email: 'cafe-field-email-publish.html'
           , select: 'cafe-field-select-publish.html'
           , textarea: 'cafe-field-textarea-publish.html'

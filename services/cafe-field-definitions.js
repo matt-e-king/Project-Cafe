@@ -53,6 +53,106 @@ cafeFieldDefinitions.factory('CafeFieldDefinitions', function() {
 
 		};
 
+    this.list.password = {
+
+      meta : {
+        id : {
+          value: 'password'
+          , type: 'text'
+        }
+        , type : {
+          value : 'password'
+          , type: 'text'
+          , showInLoop: false
+        }
+        , required : {
+          value: true
+          , type: 'checkbox'
+        }
+        , disabled : {
+          value: false
+          , type: 'checkbox'
+        }
+        , conditional : {
+          value : 'true'
+          , whichField : ''
+          , operator : ''
+          , type: 'text'
+          , showInLoop: false
+        }
+        , width : {
+          value : 12
+          , showInLoop: false
+        }
+      }
+      , content : {
+        label : {
+          value: 'Password'
+          , type: 'text'
+        }
+        , placeholder : {
+          value: ''
+          , type: 'text'
+        }
+        , value : {
+          value : ''
+          , type: 'text'
+          , showInLoop: false
+        }
+      }
+
+    };
+
+    this.list.file = {
+
+      meta : {
+        id : {
+          value: 'file'
+          , type: 'text'
+        }
+        , type : {
+          value : 'file'
+          , type: 'text'
+          , showInLoop: false
+        }
+        , required : {
+          value: true
+          , type: 'checkbox'
+        }
+        , disabled : {
+          value: false
+          , type: 'checkbox'
+        }
+        , conditional : {
+          value : 'true'
+          , whichField : ''
+          , operator : ''
+          , type: 'text'
+          , showInLoop: false
+        }
+        , width : {
+          value : 12
+          , showInLoop: false
+        }
+      }
+      , content : {
+        label : {
+          value: 'Upload File'
+          , type: 'text'
+        }
+        , placeholder : {
+          value: ''
+          , type: 'text'
+        }
+        , value : {
+          value : ''
+          , type: 'text'
+          , showInLoop: false
+        }
+      }
+
+    };
+
     this.list.textarea = {
 
       meta : {
