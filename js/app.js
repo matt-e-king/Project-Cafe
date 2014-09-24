@@ -22,7 +22,17 @@ cafe.factory('CafeDataHandler', function() {
 
 });
 
-cafe.controller('MainController', ['$scope', '$location', '$route', function($scope, $location, $route) {
+cafe.filter('capitalize', function() {
+  return function(input, all) {
+    return (!!input) ? input.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
+  }
+});
+
+cafe.controller('MainController', ['$scope', '$location', '$route', 'CafeFieldDefinitions', function($scope, $location, $route, CafeFieldDefinitions) {
+
+  $scope.definitions = new CafeFieldDefinitions();
+
+  console.log($scope.definitions);
 
   $scope.settings = {
     id : "form"
@@ -162,8 +172,9 @@ cafe.controller('FormController', ['$scope', '$filter', '$location', '$route', '
   }
 
   $scope.addNewSection = function(type) {
-
+    console.log(type);
     var _definition = new CafeFieldDefinitions();
+    console.log(_definition);
     $scope.fields.push(_definition.list[type]);
     $route.reload();
 

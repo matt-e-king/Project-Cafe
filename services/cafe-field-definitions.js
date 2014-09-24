@@ -5,7 +5,8 @@ cafeFieldDefinitions.factory('CafeFieldDefinitions', function() {
 
 		this.list.text = {
 
-			meta : {
+      order: 0
+			, meta : {
 				id : {
 					value: 'textBox'
 					, type: 'text'
@@ -55,7 +56,8 @@ cafeFieldDefinitions.factory('CafeFieldDefinitions', function() {
 
     this.list.password = {
 
-      meta : {
+      order: 5
+      , meta : {
         id : {
           value: 'password'
           , type: 'text'
@@ -105,7 +107,8 @@ cafeFieldDefinitions.factory('CafeFieldDefinitions', function() {
 
     this.list.file = {
 
-      meta : {
+      order: 10
+      , meta : {
         id : {
           value: 'file'
           , type: 'text'
@@ -155,7 +158,8 @@ cafeFieldDefinitions.factory('CafeFieldDefinitions', function() {
 
     this.list.textarea = {
 
-      meta : {
+      order: 15
+      , meta : {
         id : {
           value: 'textArea'
           , type: 'text'
@@ -205,7 +209,8 @@ cafeFieldDefinitions.factory('CafeFieldDefinitions', function() {
 
 		this.list.email = {
 
-			meta : {
+      order: 20
+			, meta : {
 				id : {
 					value: 'emailAddress'
 					, type: 'text'
@@ -255,7 +260,8 @@ cafeFieldDefinitions.factory('CafeFieldDefinitions', function() {
 
     this.list.select = {
 
-      meta : {
+      order: 25
+      , meta : {
         id : {
           value: 'dropdown'
           , type: 'text'
@@ -309,7 +315,8 @@ cafeFieldDefinitions.factory('CafeFieldDefinitions', function() {
 
     this.list.radio = {
 
-      meta : {
+      order: 30
+      , meta : {
         id : {
           value: 'radio'
           , type: 'text'
@@ -359,7 +366,8 @@ cafeFieldDefinitions.factory('CafeFieldDefinitions', function() {
 
     this.list.checkbox = {
 
-      meta : {
+      order: 35
+      , meta : {
         id : {
           value: 'checkbox'
           , type: 'text'

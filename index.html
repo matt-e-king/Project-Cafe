@@ -6,7 +6,7 @@
   <script src="dist/js/main.js"></script>
   <!-- endbuild -->
 </head>
-<body ng-controller="MainController">
+<body ng-controller="MainController" ng-cloak>
 
   <header role="banner">
 
@@ -65,46 +65,11 @@
             <div class="tab-content col-xs-12">
 
               <ul id="fields" class="tab-pane fade in active">
-                <li>
-                  <button class="btn btn-default" ng-click="addNewSection('text')">
-                    Input +
+                <li ng-repeat="(key, value) in definitions.list">
+                  <button class="btn btn-default" ng-click="addNewSection(key)">
+                    {{key | capitalize:true}} +
                   </button>
-                </li>
-                <li>
-                  <button class="btn btn-default" ng-click="addNewSection('password')">
-                    Password +
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-default" ng-click="addNewSection('file')">
-                    Uploader +
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-default" ng-click="addNewSection('email')">
-                    Email +
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-default" ng-click="addNewSection('select')">
-                    Select +
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-default" ng-click="addNewSection('textarea')">
-                    Textarea +
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-default" ng-click="addNewSection('radio')">
-                    Radio +
-                  </button>
-                </li>
-                <li>
-                  <button class="btn btn-default" ng-click="addNewSection('checkbox')">
-                    Checkbox +
-                  </button>
-                </li>
+                </li> 
               </ul>
 
               <div id="settings" class="tab-pane fade">
