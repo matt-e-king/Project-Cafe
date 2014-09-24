@@ -56,12 +56,8 @@ module.exports = function (grunt) {
           , 'bower_components/bootstrap/dist/js/bootstrap.js'
           , 'js/app.js'
           , 'modules/cafe-modules.js'
-          , 'directives/cafe-field-edit.js'
-          , 'directives/cafe-field-publish.js'
-          , 'directives/cafe-field-definitions.js'
-          , 'directives/cafe-edit-controls.js'
-          , 'directives/cafe-edit-common.js'
-          , 'directives/cafe-edit-conditional.js'
+          , 'directives/cafe-directives.js'
+          , 'services/cafe-field-definitions.js'
         ],
         dest: 'dist/js/main.js'
       }
