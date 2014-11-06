@@ -54,11 +54,12 @@ module.exports = function (grunt) {
           , 'bower_components/angular/angular.js'
           , 'bower_components/angular-route/angular-route.js'
           , 'bower_components/bootstrap/dist/js/bootstrap.js'
-          , 'js/app.js'
           , 'modules/cafe-modules.js'
-          , 'directives/cafe-directives.js'
           , 'services/cafe-data-handler.js'
           , 'services/cafe-field-definitions.js'
+          , 'controllers/cafe-controllers.js'
+          , 'directives/cafe-directives.js'
+          , 'filters/cafe-filters.js'
         ],
         dest: 'dist/js/main.js'
       }
