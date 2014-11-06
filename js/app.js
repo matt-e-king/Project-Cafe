@@ -8,19 +8,36 @@ cafe.config(['$routeProvider', function($routeProvider) {
   });
 }]);
 
-cafe.factory('CafeDataHandler', function() {
+cafe.factory('CafeDataHandler', ['CafeFieldDefinitions', function(CafeFieldDefinitions) {
 
-  var cafeDataHandler = {};
+  function DataHandler() {
+    this.fields = [];
+  };
 
-  cafeDataHandler.fields = [
+  DataHandler.prototype.removeSection = function(index) {
+    this.fields.splice(index, 1);
+  };
 
-  ];
+  DataHandler.prototype.addSection = function(type) {
+    var _definition = new CafeFieldDefinitions();
+    this.fields.push(_definition.list[type]);
+  };
 
-  cafeDataHandler.published;
+  DataHandler.prototype.moveSection = function(origin, destination) {
+    var temp = this.fields[destination];
+    this.fields[destination] = this.fields[origin];
+    this.fields[origin] = temp;
 
-  return cafeDataHandler;
+    angular.forEach(this.fields, function(value, key) {
+      if(value.meta.conditional.whichField == 'fields['+origin+'].content.value.value') {
+        value.meta.conditional.whichField = 'fields['+destination+'].content.value.value';
+      }
+    });
+  };
 
-});
+  return new DataHandler;
+
+}]);
 
 cafe.filter('capitalize', function() {
   return function(input, all) {
@@ -159,7 +176,6 @@ cafe.controller('FormController', ['$scope', '$filter', '$location', '$route', '
 
   $scope.loadHTML = function() {
 
-    // var _tempText = angular.element.text($scope.createHTML());
     angular.element('#html').val($scope.createHTML());
 
   }
@@ -167,30 +183,23 @@ cafe.controller('FormController', ['$scope', '$filter', '$location', '$route', '
 
   $scope.removeSection = function(index) {
 
-    $scope.fields.splice(index, 1);
+    CafeDataHandler.removeSection(index);
     $route.reload();
+
   }
 
   $scope.addNewSection = function(type) {
-    console.log(type);
-    var _definition = new CafeFieldDefinitions();
-    console.log(_definition);
-    $scope.fields.push(_definition.list[type]);
+
+    CafeDataHandler.addSection(type);
     $route.reload();
 
   }
 
   $scope.moveSection = function(origin, destination) {
-    var temp = $scope.fields[destination];
-    $scope.fields[destination] = $scope.fields[origin];
-    $scope.fields[origin] = temp;
 
-    angular.forEach($scope.fields, function(value, key) {
-      if(value.meta.conditional.whichField == 'fields['+origin+'].content.value.value') {
-        value.meta.conditional.whichField = 'fields['+destination+'].content.value.value';
-      }
-    });
+    CafeDataHandler.moveSection(origin, destination);
     $route.reload();
+
   }
 
 
