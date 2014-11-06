@@ -1,4 +1,4 @@
-cafeFieldDefinitions.factory('CafeFieldDefinitions', function() {
+angular.module('CafeFieldDefinitions').factory('CafeFieldDefinitions', function() {
 
 	function CafeFieldDefinitions() {
 		this.list = {};

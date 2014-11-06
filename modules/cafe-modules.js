@@ -1,5 +1,5 @@
-var cafeForm = angular.module('CafeForm', ['CafeFormPublish', 'CafeFieldDefinitions']);
+angular.module('CafeForm', ['CafeFormPublish', 'CafeFieldDefinitions']);
 
-var cafeFormPublish = angular.module('CafeFormPublish', []);
+angular.module('CafeFormPublish', []);
 
-var cafeFieldDefinitions = angular.module('CafeFieldDefinitions', []);
+angular.module('CafeFieldDefinitions', []);

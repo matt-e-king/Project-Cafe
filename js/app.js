@@ -1,6 +1,6 @@
-var cafe = angular.module('Cafe', ['ngRoute', 'CafeForm']);
+angular.module('Cafe', ['ngRoute', 'CafeForm']);
 
-cafe.config(['$routeProvider', function($routeProvider) {
+angular.module('Cafe').config(['$routeProvider', function($routeProvider) {
   $routeProvider
   .when('/', {
     templateUrl: 'templates/cafe-form-view.html',
@@ -8,44 +8,13 @@ cafe.config(['$routeProvider', function($routeProvider) {
   });
 }]);
 
-cafe.factory('CafeDataHandler', ['CafeFieldDefinitions', function(CafeFieldDefinitions) {
-
-  function DataHandler() {
-    this.fields = [];
-  };
-
-  DataHandler.prototype.removeSection = function(index) {
-    this.fields.splice(index, 1);
-  };
-
-  DataHandler.prototype.addSection = function(type) {
-    var _definition = new CafeFieldDefinitions();
-    this.fields.push(_definition.list[type]);
-  };
-
-  DataHandler.prototype.moveSection = function(origin, destination) {
-    var temp = this.fields[destination];
-    this.fields[destination] = this.fields[origin];
-    this.fields[origin] = temp;
-
-    angular.forEach(this.fields, function(value, key) {
-      if(value.meta.conditional.whichField == 'fields['+origin+'].content.value.value') {
-        value.meta.conditional.whichField = 'fields['+destination+'].content.value.value';
-      }
-    });
-  };
-
-  return new DataHandler;
-
-}]);
-
-cafe.filter('capitalize', function() {
+angular.module('Cafe').filter('capitalize', function() {
   return function(input, all) {
     return (!!input) ? input.replace(/([^\W_]+[^\s-]*) */g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();}) : '';
   }
 });
 
-cafe.controller('MainController', ['$scope', '$location', '$route', 'CafeFieldDefinitions', function($scope, $location, $route, CafeFieldDefinitions) {
+angular.module('Cafe').controller('MainController', ['$scope', '$location', '$route', 'CafeFieldDefinitions', function($scope, $location, $route, CafeFieldDefinitions) {
 
   $scope.definitions = new CafeFieldDefinitions();
 
@@ -64,7 +33,7 @@ cafe.controller('MainController', ['$scope', '$location', '$route', 'CafeFieldDe
 
 
 
-cafe.controller('FormController', ['$scope', '$filter', '$location', '$route', 'CafeDataHandler', 'CafeFieldDefinitions', function FormController($scope, $filter, $location, $route, CafeDataHandler, CafeFieldDefinitions) {
+angular.module('Cafe').controller('FormController', ['$scope', '$filter', '$location', '$route', 'CafeDataHandler', 'CafeFieldDefinitions', function FormController($scope, $filter, $location, $route, CafeDataHandler, CafeFieldDefinitions) {
 
   $scope.fields = CafeDataHandler.fields;
 

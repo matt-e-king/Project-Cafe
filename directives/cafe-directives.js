@@ -1,5 +1,5 @@
 //directive which pulls all common fields for the editing menu
-cafeForm.directive('cafeEditCommon', function cafeFieldDirective() {
+angular.module('CafeForm').directive('cafeEditCommon', function cafeFieldDirective() {
   return {
     restrict: 'AE'
     , replace: true
@@ -9,7 +9,7 @@ cafeForm.directive('cafeEditCommon', function cafeFieldDirective() {
 
 
 //directive which pull JUST the conditional fields in the editing menu
-cafeForm.directive('cafeEditConditional', function cafeFieldDirective() {
+angular.module('CafeForm').directive('cafeEditConditional', function cafeFieldDirective() {
   return {
     restrict: 'AE'
     , replace: true
@@ -19,7 +19,7 @@ cafeForm.directive('cafeEditConditional', function cafeFieldDirective() {
 
 
 //directive for the field control "edit, sort, delete"
-cafeForm.directive('cafeEditControls', function cafeFieldDirective() {
+angular.module('CafeForm').directive('cafeEditControls', function cafeFieldDirective() {
   return {
     restrict: 'AE'
     , replace: true
@@ -30,7 +30,7 @@ cafeForm.directive('cafeEditControls', function cafeFieldDirective() {
 
 //directive that determines which field is being added to form and pull in the correct template
 //this is only for the left side - editing
-cafeForm.directive('cafeFieldEdit', function cafeFieldDirective($compile, $http, $templateCache) {
+angular.module('CafeForm').directive('cafeFieldEdit', function cafeFieldDirective($compile, $http, $templateCache) {
 	var getTemplate = function(contentType) {
         var templateLoader,
         baseUrl = 'templates/edit/',
@@ -74,7 +74,7 @@ cafeForm.directive('cafeFieldEdit', function cafeFieldDirective($compile, $http,
 
 //directive that determines which field is being added to form and pull in the correct template
 //this is only for the right side - publishing
-cafeFormPublish.directive('cafeFieldPublish', function cafeFieldDirective($compile, $http, $templateCache) {
+angular.module('CafeFormPublish').directive('cafeFieldPublish', function cafeFieldDirective($compile, $http, $templateCache) {
 
 	var getTemplate = function(contentType) {
       var templateLoader,
