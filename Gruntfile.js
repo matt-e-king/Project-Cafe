@@ -57,6 +57,7 @@ module.exports = function (grunt) {
           , 'js/app.js'
           , 'modules/cafe-modules.js'
           , 'directives/cafe-directives.js'
+          , 'services/cafe-data-handler.js'
           , 'services/cafe-field-definitions.js'
         ],
         dest: 'dist/js/main.js'
