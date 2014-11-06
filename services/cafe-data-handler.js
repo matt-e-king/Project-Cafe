@@ -1,7 +1,8 @@
 angular.module('Cafe').factory('CafeDataHandler', ['CafeFieldDefinitions', function(CafeFieldDefinitions) {
 
   function DataHandler() {
-    this.fields = [];
+    this.fields       = [];
+    this.definitions  = new CafeFieldDefinitions(); 
   };
 
   DataHandler.prototype.removeSection = function(index) {

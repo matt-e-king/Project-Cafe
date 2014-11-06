@@ -2,8 +2,6 @@ angular.module('Cafe').controller('MainController', ['$scope', '$location', '$ro
 
   $scope.definitions = new CafeFieldDefinitions();
 
-  console.log($scope.definitions);
-
   $scope.settings = {
     id : "form"
     , fieldModel : "formModel"
@@ -17,7 +15,7 @@ angular.module('Cafe').controller('MainController', ['$scope', '$location', '$ro
 
 
 
-angular.module('Cafe').controller('FormController', ['$scope', '$filter', '$location', '$route', 'CafeDataHandler', 'CafeFieldDefinitions', function FormController($scope, $filter, $location, $route, CafeDataHandler, CafeFieldDefinitions) {
+angular.module('Cafe').controller('FormController', ['$scope', '$filter', '$location', '$route', 'CafeDataHandler', function FormController($scope, $filter, $location, $route, CafeDataHandler) {
 
   $scope.fields = CafeDataHandler.fields;
 
