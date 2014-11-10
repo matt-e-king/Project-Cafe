@@ -1,6 +1,8 @@
 <div class="col-xs-6">
 
-  <cafe-field-edit ng-repeat="field in fields track by $index"></cafe-field-edit>
+  <div ng-repeat="field in fields">
+    <div cafe-field-edit type="{{field.meta.type.value}}"></div>
+  </div>
 
 </div>
 
@@ -8,11 +10,14 @@
 
   <form novalidate id="publish" name="publish">
 
-      <div class="row">
-        <cafe-field-publish ng-repeat="field in fields track by $index"></cafe-field-publish>  
+    <div class="row">
+      <div ng-repeat="field in fields">
+        <cafe-field-publish></cafe-field-publish>  
       </div>
-      
-      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+
+    <button type="submit" class="btn btn-default">Submit</button>
+    
   </form>
 
 </div>

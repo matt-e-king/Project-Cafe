@@ -2,8 +2,7 @@ angular.module('Cafe', ['ngRoute', 'CafeForm'])
   .config(['$routeProvider', function($routeProvider) {
   $routeProvider
   .when('/', {
-    templateUrl: 'templates/cafe-form-view.html',
-    controller: 'FormController'
+    templateUrl: 'templates/cafe-form-view.html'
   });
 }]);
 

@@ -24,7 +24,7 @@
   </header>
 
 
-  <div ng-controller="FormController" role="main">
+  <div ng-controller="CafeFormController" role="main">
 
     <div class="container-fluid top menu">
 
@@ -116,17 +116,19 @@
 
       </div>
 
-    </div>
+      <div class="container forms">
 
-    <div class="container forms">
+        <div ng-view>
+          
+        </div>
 
-      <div class="row" ng-view>
+        <button class="btn btn-primary" ng-click="refresh()">Refresh</button>
 
       </div>
 
-      <button class="btn btn-primary" ng-click="refresh()">Refresh</button>
-
     </div>
+
+
 
     <div id="htmlCopy" style="display:none;">
       <form ng-submit="contactSubmit()" id="{{settings.id}}" name="{{settings.id}}" novalidate>

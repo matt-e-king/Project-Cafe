@@ -2,6 +2,8 @@ angular.module('Cafe').controller('MainController', ['$scope', '$location', '$ro
 
   $scope.definitions = new CafeFieldDefinitions();
 
+  console.log('main');
+
   $scope.settings = {
     id : "form"
     , fieldModel : "formModel"
@@ -15,9 +17,11 @@ angular.module('Cafe').controller('MainController', ['$scope', '$location', '$ro
 
 
 
-angular.module('Cafe').controller('FormController', ['$scope', '$filter', '$location', '$route', 'CafeDataHandler', function FormController($scope, $filter, $location, $route, CafeDataHandler) {
+angular.module('Cafe').controller('CafeFormController', ['$scope', '$filter', '$location', '$route', 'CafeDataHandler', '$timeout', function FormController($scope, $filter, $location, $route, CafeDataHandler, $timeout) {
 
-  $scope.fields = CafeDataHandler.fields;
+  $scope.fields = CafeDataHandler.fields.store;
+
+  console.log('test');
 
   $scope.setEditSection = function(index) {
     if($scope.editSection == index) {
@@ -39,9 +43,9 @@ angular.module('Cafe').controller('FormController', ['$scope', '$filter', '$loca
   $scope.loadJSON = function() {
 
     var _temp = angular.element('#json').val();
-    CafeDataHandler.fields = angular.fromJson(_temp);
-    $scope.fields = CafeDataHandler.fields;
-    $route.reload();
+    CafeDataHandler.fields.store = angular.fromJson(_temp);
+    CafeDataHandler.fields.listSize = CafeDataHandler.fields.store.length;
+    $scope.fields = CafeDataHandler.fields.store;
     
   }
 
@@ -129,29 +133,35 @@ angular.module('Cafe').controller('FormController', ['$scope', '$filter', '$loca
 
     angular.element('#html').val($scope.createHTML());
 
-  }
+  };
 
 
   $scope.removeSection = function(index) {
-
+    
     CafeDataHandler.removeSection(index);
-    $route.reload();
 
-  }
+  };
 
   $scope.addNewSection = function(type) {
 
     CafeDataHandler.addSection(type);
-    $route.reload();
 
-  }
+  };
 
   $scope.moveSection = function(origin, destination) {
 
     CafeDataHandler.moveSection(origin, destination);
-    $route.reload();
 
-  }
+  };
+
+  $scope.moveTo = function(element, target) {
+
+    $scope.moveTo[element] = '';
+    var target = parseInt(target, 10);
+    CafeDataHandler.moveTo(element, target);
+    console.log($scope.fields);
+
+  };
 
 
 }]);

@@ -52,15 +52,18 @@ angular.module('CafeForm').directive('cafeFieldEdit', function cafeFieldDirectiv
 
     }
 
+
     var linker = function($scope, $element, $attrs) {
 
-        var loader = getTemplate($scope.field.meta.type.value);
+      var loader = getTemplate($attrs.type);
+      console.log($attrs.type);
 
-        var promise = loader.success(function(html) {
-            $element.html(html);
-        }).then(function (response) {
-            $element.replaceWith($compile($element.html())($scope));
-        });
+      var promise = loader.success(function(html) {
+          $element.html(html);
+      }).then(function (response) {
+          $element.replaceWith($compile($element.html())($scope));
+      });
+
     }
 
   return {
