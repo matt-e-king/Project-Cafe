@@ -46,6 +46,8 @@ angular.module('CafeForm').directive('cafeFieldEdit', function cafeFieldDirectiv
             , number: 'cafe-field-number-edit.html'
             , paragraph: 'cafe-format-paragraph-edit.html'
             , heading3: 'cafe-format-heading3-edit.html'
+            , heading4: 'cafe-format-heading4-edit.html'
+            , spacing: 'cafe-format-spacing-edit.html'
         };
 
         var templateUrl = baseUrl + templateMap[contentType];
@@ -98,6 +100,8 @@ angular.module('CafeFormPublish').directive('cafeFieldPublish', function cafeFie
           , number: 'cafe-field-number-publish.html'
           , paragraph: 'cafe-format-paragraph-publish.html'
           , heading3: 'cafe-format-heading3-publish.html'
+          , heading4: 'cafe-format-heading4-publish.html'
+          , spacing: 'cafe-format-spacing-publish.html'
       };
 
       var templateUrl = baseUrl + templateMap[contentType];

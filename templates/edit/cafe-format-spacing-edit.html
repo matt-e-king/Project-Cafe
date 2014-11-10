@@ -1,0 +1,17 @@
+<div class="edit form-group">
+
+  <cafe-edit-controls></cafe-edit-controls>
+
+  <label for="{{field.meta.id.value}}">
+    {{field.content.label.value}}
+  </label>
+
+  <input type="text" class="form-control" ng-model="field.content.value.value" />
+
+	<div class="edit-meta form-horizontal" ng-show="editSection == $index">
+
+		<cafe-edit-common></cafe-edit-common>
+    
+	</div>
+
+</div>
