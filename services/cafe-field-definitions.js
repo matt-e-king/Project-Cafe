@@ -54,6 +54,57 @@ angular.module('CafeFieldDefinitions').factory('CafeFieldDefinitions', function(
 
 		};
 
+    this.list.number = {
+
+      order: 0
+      , meta : {
+        id : {
+          value: 'number'
+          , type: 'text'
+        }
+        , type : {
+          value : 'number'
+          , type: 'text'
+          , showInLoop: false
+        }
+        , required : {
+          value: true
+          , type: 'checkbox'
+        }
+        , disabled : {
+          value: false
+          , type: 'checkbox'
+        }
+        , conditional : {
+          value : 'true'
+          , whichField : ''
+          , operator : ''
+          , type: 'text'
+          , showInLoop: false
+        }
+        , width : {
+          value : 12
+          , showInLoop: false
+        }
+      }
+      , content : {
+        label : {
+          value: 'Number'
+          , type: 'text'
+        }
+        , placeholder : {
+          value: ''
+          , type: 'text'
+        }
+        , value : {
+          value : ''
+          , type: 'text'
+          , showInLoop: false
+        }
+      }
+
+    };
+
     this.list.password = {
 
       order: 5

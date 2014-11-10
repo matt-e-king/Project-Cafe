@@ -2,8 +2,6 @@ angular.module('Cafe').controller('MainController', ['$scope', '$location', '$ro
 
   $scope.definitions = new CafeFieldDefinitions();
 
-  console.log('main');
-
   $scope.settings = {
     id : "form"
     , fieldModel : "formModel"
@@ -20,8 +18,6 @@ angular.module('Cafe').controller('MainController', ['$scope', '$location', '$ro
 angular.module('Cafe').controller('CafeFormController', ['$scope', '$filter', '$location', '$route', 'CafeDataHandler', '$timeout', function FormController($scope, $filter, $location, $route, CafeDataHandler, $timeout) {
 
   $scope.fields = CafeDataHandler.fields.store;
-
-  console.log('test');
 
   $scope.setEditSection = function(index) {
     if($scope.editSection == index) {
@@ -76,16 +72,13 @@ angular.module('Cafe').controller('CafeFormController', ['$scope', '$filter', '$
           });
         break;
         case 'ngShow' :
-          console.log(_formItems.ngShow.length);
           angular.forEach(value, function(v,k) {
             var _str = angular.element(v).attr('ng-show');
             var _fieldId = _str.match(/fields[\[]\d+[\]]/);
             var _leftOperator = _str.match(/fields[\[]\d+[\]]\S+/);
 
             if($scope.fields.length > 0 && _fieldId != null && _leftOperator != null) {
-              // console.log(_fieldId[0]);
               var _newStr = _str.replace(_leftOperator[0], $scope.settings.fieldModel+"."+$scope.getFieldId(_fieldId[0]));
-              // console.log(_newStr);
               angular.element(v).attr('ng-show', _newStr);
             }
           });
@@ -116,9 +109,6 @@ angular.module('Cafe').controller('CafeFormController', ['$scope', '$filter', '$
 
 
     }
-    // console.log($scope.fields)
-
-    // console.log($scope.fields[1].meta.id.value);
 
     return _form.parent().html();
 

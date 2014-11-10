@@ -43,6 +43,7 @@ angular.module('CafeForm').directive('cafeFieldEdit', function cafeFieldDirectiv
             , textarea: 'cafe-field-textarea-edit.html'
             , radio: 'cafe-field-radio-edit.html'
             , checkbox: 'cafe-field-checkbox-edit.html'
+            , number: 'cafe-field-number-edit.html'
         };
 
         var templateUrl = baseUrl + templateMap[contentType];
@@ -91,6 +92,7 @@ angular.module('CafeFormPublish').directive('cafeFieldPublish', function cafeFie
           , textarea: 'cafe-field-textarea-publish.html'
           , radio: 'cafe-field-radio-publish.html'
           , checkbox: 'cafe-field-checkbox-publish.html'
+          , number: 'cafe-field-number-publish.html'
       };
 
       var templateUrl = baseUrl + templateMap[contentType];
