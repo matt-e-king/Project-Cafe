@@ -1,7 +1,6 @@
-angular.module('Cafe').factory('CafeDataHandler', ['CafeFieldDefinitions', 'CafeListClass', function(CafeFieldDefinitions, CafeListClass) {
+angular.module('Cafe').factory('CafeDataHandler', ['CafeFieldDefinitions', 'CafeFormatDefinitions', 'CafeListClass', function(CafeFieldDefinitions, CafeFormatDefinitions, CafeListClass) {
 
   function DataHandler() {
-    this.definitions    = new CafeFieldDefinitions(); 
     this.fields         = new CafeListClass();
   };
 
@@ -12,9 +11,13 @@ angular.module('Cafe').factory('CafeDataHandler', ['CafeFieldDefinitions', 'Cafe
     // this.fields.store.splice(index, 1);
   };
 
-  DataHandler.prototype.addSection = function(type) {
+  DataHandler.prototype.addFieldSection = function(type) {
     var _definition = new CafeFieldDefinitions();
-    // this.fields.store.push(_definition.list[type]);
+    this.fields.append(_definition.list[type]);
+  };
+
+  DataHandler.prototype.addFormatSection = function(type) {
+    var _definition = new CafeFormatDefinitions();
     this.fields.append(_definition.list[type]);
   };
 

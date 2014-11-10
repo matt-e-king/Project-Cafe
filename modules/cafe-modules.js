@@ -6,8 +6,8 @@ angular.module('Cafe', ['ngRoute', 'CafeForm'])
   });
 }]);
 
-angular.module('CafeForm', ['CafeFormPublish', 'CafeFieldDefinitions']);
+angular.module('CafeForm', ['CafeFormPublish', 'CafeDefinitions']);
 
 angular.module('CafeFormPublish', []);
 
-angular.module('CafeFieldDefinitions', []);
+angular.module('CafeDefinitions', []);

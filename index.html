@@ -39,6 +39,11 @@
                   </button>
                 </li>
                 <li>
+                  <button data-target="#formats" class="btn btn-default" role="tab" data-toggle="tab">
+                    Formatting
+                  </button>
+                </li>
+                <li>
                   <button data-target="#settings" class="btn btn-default" role="tab" data-toggle="tab">
                     Form Settings
                   </button>
@@ -65,8 +70,16 @@
             <div class="tab-content col-xs-12">
 
               <ul id="fields" class="tab-pane fade in active">
-                <li ng-repeat="(key, value) in definitions.list">
-                  <button class="btn btn-default" ng-click="addNewSection(key)">
+                <li ng-repeat="(key, value) in fieldDefinitions.list">
+                  <button class="btn btn-default" ng-click="addNewSection(key, 'fields')">
+                    {{key | capitalize:true}} +
+                  </button>
+                </li> 
+              </ul>
+
+              <ul id="formats" class="tab-pane fade">
+                <li ng-repeat="(key, value) in formatDefinitions.list">
+                  <button class="btn btn-default" ng-click="addNewSection(key, 'formats')">
                     {{key | capitalize:true}} +
                   </button>
                 </li> 

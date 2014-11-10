@@ -44,9 +44,12 @@ angular.module('CafeForm').directive('cafeFieldEdit', function cafeFieldDirectiv
             , radio: 'cafe-field-radio-edit.html'
             , checkbox: 'cafe-field-checkbox-edit.html'
             , number: 'cafe-field-number-edit.html'
+            , paragraph: 'cafe-format-paragraph-edit.html'
+            , heading3: 'cafe-format-heading3-edit.html'
         };
 
         var templateUrl = baseUrl + templateMap[contentType];
+        console.log(templateMap[contentType]);
         templateLoader = $http.get(templateUrl, {cache: $templateCache});
 
         return templateLoader;
@@ -93,6 +96,8 @@ angular.module('CafeFormPublish').directive('cafeFieldPublish', function cafeFie
           , radio: 'cafe-field-radio-publish.html'
           , checkbox: 'cafe-field-checkbox-publish.html'
           , number: 'cafe-field-number-publish.html'
+          , paragraph: 'cafe-format-paragraph-publish.html'
+          , heading3: 'cafe-format-heading3-publish.html'
       };
 
       var templateUrl = baseUrl + templateMap[contentType];
@@ -106,8 +111,7 @@ angular.module('CafeFormPublish').directive('cafeFieldPublish', function cafeFie
 
       var loader = getTemplate($scope.field.meta.type.value);
 
-      var promise = loader.success(function(html) {
-          var _appendHTML = "<div class=\"fart\">"+html+"</div>";
+      var promise = loader.success(function(html) { 
           $element.html(html);
       }).then(function (response) {
           $element.replaceWith($compile($element.html())($scope));

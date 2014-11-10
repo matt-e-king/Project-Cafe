@@ -1,0 +1,21 @@
+<div class="edit form-group">
+
+  <cafe-edit-controls></cafe-edit-controls>
+
+  <label for="{{field.meta.id.value}}">
+    {{field.content.label.value}} 
+  </label>
+
+  <textarea ng-model="field.content.value.value" class="form-control">
+    
+  </textarea>
+
+	<div class="edit-meta form-horizontal" ng-show="editSection == $index">
+
+		<cafe-edit-common></cafe-edit-common>
+
+    <cafe-edit-conditional></cafe-edit-conditional>
+    
+	</div>
+
+</div>

@@ -1,6 +1,7 @@
-angular.module('Cafe').controller('MainController', ['$scope', '$location', '$route', 'CafeFieldDefinitions', function($scope, $location, $route, CafeFieldDefinitions) {
+angular.module('Cafe').controller('MainController', ['$scope', '$location', '$route', 'CafeFieldDefinitions', 'CafeFormatDefinitions' ,function($scope, $location, $route, CafeFieldDefinitions, CafeFormatDefinitions) {
 
-  $scope.definitions = new CafeFieldDefinitions();
+  $scope.fieldDefinitions = new CafeFieldDefinitions();
+  $scope.formatDefinitions = new CafeFormatDefinitions();
 
   $scope.settings = {
     id : "form"
@@ -132,9 +133,13 @@ angular.module('Cafe').controller('CafeFormController', ['$scope', '$filter', '$
 
   };
 
-  $scope.addNewSection = function(type) {
-
-    CafeDataHandler.addSection(type);
+  $scope.addNewSection = function(type, definition) {
+    if(definition == 'fields') {
+      CafeDataHandler.addFieldSection(type);
+    }
+    if(definition == 'formats') {
+      CafeDataHandler.addFormatSection(type);
+    }
 
   };
 
