@@ -1,4 +1,4 @@
-angular.module('Cafe', ['ngRoute', 'CafeForm'])
+angular.module('Cafe', ['ngRoute', 'ngSanitize', 'CafeForm'])
   .config(['$routeProvider', function($routeProvider) {
   $routeProvider
   .when('/', {
