@@ -160,3 +160,6 @@ angular.module('Cafe').controller('CafeFormController', ['$scope', '$filter', '$
 
 
 }]);
+
+angular.module('Cafe').controller('FormController', function() {
+});
